@@ -24,6 +24,9 @@ M.treesitter = {
     --   "python"
     -- },
   },
+  autotag = {
+    enable = true,
+  },
 }
 
 M.mason = {
@@ -38,6 +41,7 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "emmet-ls",
 
     -- c/cpp stuff
     "clangd",
@@ -69,6 +73,18 @@ M.nvimtree = {
 -- Telescope Harpoon
 M.telescope = {
   extensions_list = { "harpoon" },
+}
+
+-- Cmp Copilot Intergration
+M.copilot = {
+  -- Possible configurable fields can be found on:
+  -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+  suggestion = {
+    enable = false,
+  },
+  panel = {
+    enable = false,
+  },
 }
 
 return M

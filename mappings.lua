@@ -70,7 +70,7 @@ M.harpoon = {
     },
     ["<leader>h]"] = {
       function()
-        require("harpoon.ui").nax_next()
+        require("harpoon.ui").nav_next()
       end,
       "Goto next mark",
     },
