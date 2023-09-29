@@ -90,6 +90,10 @@ local plugins = {
       },
     },
   },
+  {
+    "ggandor/lightspeed.nvim",
+    lazy = false,
+  },
 
   -- To make a plugin not be loaded
   --

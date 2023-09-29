@@ -17,6 +17,8 @@ M.treesitter = {
     "rust",
     "yaml",
     "scss",
+    "dockerfile",
+    "json",
   },
   indent = {
     enable = true,
@@ -43,6 +45,7 @@ M.mason = {
     "prettier",
     "tailwind-css-language-server",
     "emmet-ls",
+    "prisma-language-server",
 
     -- c/cpp stuff
     "clangd",

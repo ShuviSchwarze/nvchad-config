@@ -29,10 +29,10 @@ M.move_lines = {
     ["<A-Right>"] = { "yykp", "Clone Line Up" },
   },
   i = {
-    ["<A-k>"] = { "<esc> :m-2 <CR> ==hi", "Move Line Up" },
-    ["<A-j>"] = { "<esc> :m+ <CR> ==hi", "Move Line Down" },
-    ["<A-Down>"] = { "<esc> :m+ <CR> ==hi", "Move Line Down" },
-    ["<A-Up>"] = { "<esc> :m-2 <CR> ==hi", "Move Line Up" },
+    ["<A-k>"] = { "<esc> :m-2 <CR> ==gi", "Move Line Up" },
+    ["<A-j>"] = { "<esc> :m+ <CR> ==gi", "Move Line Down" },
+    ["<A-Down>"] = { "<esc> :m+ <CR> ==gi", "Move Line Down" },
+    ["<A-Up>"] = { "<esc> :m-2 <CR> ==gi", "Move Line Up" },
   },
   x = {
     ["<A-j>"] = { ":m '>+1 <CR> gv=gv", "Move Line Down" },
