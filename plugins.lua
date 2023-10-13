@@ -53,8 +53,14 @@ local plugins = {
     cmd = "Harpoon",
   },
   {
-    "tpope/vim-surround",
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
   {
     "tpope/vim-repeat",
@@ -139,7 +145,58 @@ local plugins = {
       },
     },
   },
+  { "akinsho/git-conflict.nvim", event = "VeryLazy", version = "*", config = true },
+  {
+    "cbochs/portal.nvim",
+    event = "VeryLazy",
+    -- Optional dependencies
+    dependencies = {
+      "cbochs/grapple.nvim",
+      "ThePrimeagen/harpoon",
+    },
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    cmd = "Barbecue",
+    event = "VeryLazy",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+    config = function()
+      -- triggers CursorHold event faster
+      vim.opt.updatetime = 200
 
+      require("barbecue").setup {
+        create_autocmd = false, -- prevent barbecue from updating itself automatically
+      }
+
+      vim.api.nvim_create_autocmd({
+        "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
+        "BufWinEnter",
+        "CursorHold",
+        "InsertLeave",
+        -- include this if you have set `show_modified` to `true`
+        "BufModifiedSet",
+      }, {
+        group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+        callback = function()
+          require("barbecue.ui").update()
+        end,
+      })
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    cmd = "Trouble",
+  },
   -- To make a plugin not be loaded
   --
   -- {
