@@ -25,4 +25,12 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- If tsserver broke again, and I swear to god it will, bump nvm node version
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  single_file_support = true,
+}
+
 -- lspconfig.pyright.setup { blabla}
