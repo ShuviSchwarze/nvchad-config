@@ -8,7 +8,8 @@ local servers = {
   "html",
   "cssls",
   "tsserver",
-  "clangd",
+  -- "clangd",
+  "bufls",
   "pyright",
   "tailwindcss",
   "emmet_ls",
@@ -32,5 +33,16 @@ lspconfig.tsserver.setup {
 
   single_file_support = true,
 }
+
+lspconfig.html.setup {
+  filetypes = { "html", "htmldjango" },
+}
+
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+--   silent = true,
+-- })
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.handlers.hover, {
+--   border = "rounded",
+-- })
 
 -- lspconfig.pyright.setup { blabla}

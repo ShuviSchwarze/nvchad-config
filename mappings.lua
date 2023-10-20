@@ -14,6 +14,10 @@ M.general = {
       end,
       "Close All Buffers",
     },
+    ["H"] = { "_", "Jump to text line start" },
+    ["L"] = { "$", "Jump to text line end" },
+    ["<C-u>"] = { "<C-u>zz", "Jump half view up center" },
+    ["<C-d>"] = { "<C-d>zz", "Jump half view down center" },
   },
 }
 
@@ -80,6 +84,13 @@ M.harpoon = {
       end,
       "Goto prev mark",
     },
+  },
+}
+
+M.portal = {
+  n = {
+    ["<leader>o"] = { "<cmd>Portal jumplist backward<cr>" },
+    ["<leader>i"] = { "<cmd>Portal jumplist backward<cr>" },
   },
 }
 
