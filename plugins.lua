@@ -197,6 +197,10 @@ local plugins = {
     event = "VeryLazy",
     cmd = "Trouble",
   },
+  {
+    "tpope/vim-sleuth",
+    event = "BufRead",
+  },
   -- To make a plugin not be loaded
   --
   -- {
