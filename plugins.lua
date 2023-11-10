@@ -201,6 +201,11 @@ local plugins = {
     "tpope/vim-sleuth",
     event = "BufRead",
   },
+  {
+    "kkoomen/vim-doge",
+    event = "VeryLazy",
+    cmd = "DogeGenerate",
+  },
   -- To make a plugin not be loaded
   --
   -- {

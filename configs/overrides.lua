@@ -43,7 +43,7 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
-    "tailwind-css-language-server",
+    "tailwindcss-language-server",
     "emmet-ls",
     "prisma-language-server",
 
