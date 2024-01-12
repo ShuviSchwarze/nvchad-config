@@ -46,6 +46,7 @@ M.mason = {
     "tailwindcss-language-server",
     "emmet-ls",
     "prisma-language-server",
+    "quick-lint-js",
 
     -- c/cpp stuff
     "clangd",

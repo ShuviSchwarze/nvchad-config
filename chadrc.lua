@@ -8,7 +8,17 @@ M.ui = {
   theme = "catppuccin",
   theme_toggle = { "catppuccin", "one_light" },
 
-  hl_override = highlights.override,
+  hl_override = {
+    -- highlights.override,
+    Normal = {
+      ctermbg = 0,
+      bg = "NONE",
+    },
+    NonText = {
+      ctermbg = 0,
+      bg = "NONE",
+    },
+  },
   hl_add = highlights.add,
   tabufline = {
     enabled = false,

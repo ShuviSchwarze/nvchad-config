@@ -19,14 +19,17 @@ M.general = {
     ["<C-u>"] = { "<C-u>zz", "Jump half view up center" },
     ["<C-d>"] = { "<C-d>zz", "Jump half view down center" },
   },
+  v = {
+    ["//"] = { "y/<C-R>=escape(@\",'/\\')<CR><CR>", "Search selected text" },
+  },
 }
 
 M.move_lines = {
   n = {
-    ["<A-j>"] = { ":m+ <CR> ==", "Move Line Down" },
-    ["<A-k>"] = { ":m-2 <CR> ==", "Move Line Up" },
-    ["<A-Down>"] = { ":m+ <CR> ==", "Move Line Down" },
-    ["<A-Up>"] = { ":m-2 <CR> ==", "Move Line Up" },
+    ["<A-j>"] = { ":m+<CR>==", "Move Line Down" },
+    ["<A-k>"] = { ":m-2<CR>==", "Move Line Up" },
+    ["<A-Down>"] = { ":m+<CR>==", "Move Line Down" },
+    ["<A-Up>"] = { ":m-2<CR>==", "Move Line Up" },
     ["<A-J>"] = { "yyp", "Clone Line Down" },
     ["<A-K>"] = { "yykp", "Clone Line Up" },
     ["<A-Left>"] = { "yyp", "Clone Line Down" },
@@ -92,6 +95,10 @@ M.portal = {
     ["<leader>o"] = { "<cmd>Portal jumplist backward<cr>" },
     ["<leader>i"] = { "<cmd>Portal jumplist backward<cr>" },
   },
+  x = {
+    ["<leader>o"] = { "<cmd>Portal jumplist backward<cr>" },
+    ["<leader>i"] = { "<cmd>Portal jumplist backward<cr>" },
+  },
 }
 
 M.telescope = {
@@ -101,12 +108,73 @@ M.telescope = {
   },
 }
 
+M.oil = {
+  n = {
+    ["-"] = { "<cmd>Oil<CR>", "Open Oil" },
+  },
+}
+
+M.copilot = {
+  n = {
+    ["<leader>cp"] = { "<cmd> Copilot panel<CR>", "Open Copilot" },
+  },
+}
+
+M.nvterm = {
+  t = {
+    -- toggle in terminal mode
+    ["<ƒ>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+
+    ["<˙>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+
+    ["<√>"] = {
+      function()
+        require("nvterm.terminal").toggle "vertical"
+      end,
+      "Toggle vertical term",
+    },
+  },
+
+  n = {
+    -- toggle in normal mode
+    ["<ƒ>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+    ["<˙>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+
+    ["<√>"] = {
+      function()
+        require("nvterm.terminal").toggle "vertical"
+      end,
+      "Toggle vertical term",
+    },
+  },
+}
+
 --nvterm should use toggled terms only
 M.disabled = {
-  n = {
-    ["<leader>h"] = "",
-    ["<leader>v"] = "",
-  },
+  -- n = {
+  --   ["<leader>h"] = "",
+  --   ["<leader>v"] = "",
+  -- },
 }
 
 -- more keybinds!

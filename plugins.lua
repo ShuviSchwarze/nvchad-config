@@ -72,30 +72,76 @@ local plugins = {
   },
   {
     "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
     event = "InsertEnter",
-    opts = overrides.copilot,
+    config = function()
+      require("copilot").setup {
+        panel = {
+          enabled = true,
+          auto_refresh = false,
+          keymap = {
+            jump_prev = "[[",
+            jump_next = "]]",
+            accept = "<CR>",
+            refresh = "gr",
+            open = "<M-o>",
+          },
+          layout = {
+            position = "right", -- | top | left | right
+            ratio = 0.4,
+          },
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<M-l>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        filetypes = {
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node", -- Node.js version must be > 18.x
+        server_opts_overrides = {},
+      }
+    end,
+    -- opts = overrides.copilot,
   },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function()
-          require("copilot_cmp").setup()
-        end,
-      },
-    },
-    opts = {
-      sources = {
-        { name = "nvim_lsp", group_index = 2 },
-        { name = "copilot", group_index = 2 },
-        { name = "luasnip", group_index = 2 },
-        { name = "buffer", group_index = 2 },
-        { name = "nvim_lua", group_index = 2 },
-        { name = "path", group_index = 2 },
-      },
-    },
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     {
+  --       "zbirenbaum/copilot-cmp",
+  --       config = function()
+  --         require("copilot_cmp").setup()
+  --       end,
+  --     },
+  --   },
+  --   opts = {
+  --     sources = {
+  --       { name = "nvim_lsp", group_index = 2 },
+  --       { name = "copilot", group_index = 2 },
+  --       { name = "luasnip", group_index = 2 },
+  --       { name = "buffer", group_index = 2 },
+  --       { name = "nvim_lua", group_index = 2 },
+  --       { name = "path", group_index = 2 },
+  --     },
+  --   },
+  -- },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -152,7 +198,7 @@ local plugins = {
     -- Optional dependencies
     dependencies = {
       "cbochs/grapple.nvim",
-      "ThePrimeagen/harpoon",
+      -- "ThePrimeagen/harpoon",
     },
   },
   {
@@ -205,6 +251,47 @@ local plugins = {
     "kkoomen/vim-doge",
     event = "VeryLazy",
     cmd = "DogeGenerate",
+  },
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("lsp_lines").setup()
+      vim.diagnostic.config {
+        virtual_lines = false,
+      }
+    end,
+    keys = {
+      {
+        "<leader>ll",
+        mode = { "n", "o", "x" },
+        function()
+          require("lsp_lines").toggle()
+        end,
+        desc = "Lined Diagnostic Toggle",
+      },
+    },
+  },
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    cmd = "Oil",
+    config = function()
+      require("oil").setup()
+    end,
+  },
+  {
+    "mg979/vim-visual-multi",
+    cmd = "VisualMulti",
+    event = "VeryLazy",
+  },
+  {
+    "ecthelionvi/NeoComposer.nvim",
+    dependencies = { "kkharji/sqlite.lua" },
+    opts = {},
   },
   -- To make a plugin not be loaded
   --

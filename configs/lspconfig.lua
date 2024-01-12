@@ -13,7 +13,8 @@ local servers = {
   "pyright",
   "tailwindcss",
   "emmet_ls",
-  "eslint",
+  -- "eslint",
+  "quick_lint_js",
   "dockerls",
   "docker_compose_language_service",
   "prismals",
@@ -36,6 +37,10 @@ lspconfig.tsserver.setup {
 
 lspconfig.html.setup {
   filetypes = { "html", "htmldjango" },
+}
+
+lspconfig.quick_lint_js.setup {
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 }
 
 -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
