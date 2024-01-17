@@ -14,13 +14,15 @@ M.general = {
       end,
       "Close All Buffers",
     },
-    ["H"] = { "_", "Jump to text line start" },
-    ["L"] = { "$", "Jump to text line end" },
+    ["<S-h>"] = { "_", "Jump to text line start" },
+    ["<S-l>"] = { "$", "Jump to text line end" },
     ["<C-u>"] = { "<C-u>zz", "Jump half view up center" },
     ["<C-d>"] = { "<C-d>zz", "Jump half view down center" },
   },
   v = {
-    ["//"] = { "y/<C-R>=escape(@\",'/\\')<CR><CR>", "Search selected text" },
+    ["<S-h>"] = { "_", "Jump to text line start" },
+    ["<S-l>"] = { "$", "Jump to text line end" },
+    ["//"] = { "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", "Search selected text" },
   },
 }
 
