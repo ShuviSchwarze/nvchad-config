@@ -7,19 +7,20 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+
+  -- Formatting
+  {
+    "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    event = "VeryLazy",
+    config = function()
+      require "custom.configs.conform"
+    end,
   },
 
   -- override plugin configs
@@ -283,11 +284,11 @@ local plugins = {
       require("oil").setup()
     end,
   },
-  {
-    "mg979/vim-visual-multi",
-    cmd = "VisualMulti",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   cmd = "VisualMulti",
+  --   event = "VeryLazy",
+  -- },
   {
     "ecthelionvi/NeoComposer.nvim",
     dependencies = { "kkharji/sqlite.lua" },

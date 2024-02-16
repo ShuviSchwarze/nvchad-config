@@ -3,6 +3,13 @@ local M = {}
 
 M.general = {
   n = {
+    --  format with conform
+    ["<leader>fm"] = {
+      function()
+        require("conform").format()
+      end,
+      "formatting",
+    },
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<C-p>"] = { ":Telescope find_files <CR>", "Find files", opts = { nowait = true } },
     ["<A-]>"] = { ":cnext <CR>", "Next Quickfix" },

@@ -18,6 +18,8 @@ local servers = {
   "dockerls",
   "docker_compose_language_service",
   "prismals",
+
+  "rust_analyzer",
 }
 
 for _, lsp in ipairs(servers) do
