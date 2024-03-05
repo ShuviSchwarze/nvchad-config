@@ -47,6 +47,7 @@ M.mason = {
     "emmet-ls",
     "prisma-language-server",
     "quick-lint-js",
+    "volar",
 
     -- c/cpp stuff
     "clangd",

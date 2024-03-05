@@ -2,12 +2,15 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local typescript_tools = require "typescript-tools"
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-  "html",
+  -- "html",
   "cssls",
   "tsserver",
+  -- "volar",
+
   -- "clangd",
   "bufls",
   "pyright",
@@ -26,6 +29,7 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    -- inherit my volar settings, you can just add vue to the `typescript-tools` filetypes.
   }
 end
 
@@ -33,12 +37,26 @@ end
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-
   single_file_support = true,
-}
 
-lspconfig.html.setup {
-  filetypes = { "html", "htmldjango" },
+  init_options = {
+    hostInfo = "neovim",
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "anything",
+        languages = {
+          "typescript",
+          "vue",
+        },
+      },
+    },
+  },
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+  },
 }
 
 lspconfig.quick_lint_js.setup {

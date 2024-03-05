@@ -146,7 +146,7 @@ local plugins = {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    ---@type Flash.Config
+    --@type Flash.Config
     opts = {},
         -- stylua: ignore
     keys = {
@@ -379,6 +379,12 @@ local plugins = {
         },
       }
     end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+    filetypes = { "typescript", "typescriptreact", "vue" },
   },
   -- To make a plugin not be loaded
   --
