@@ -386,6 +386,10 @@ local plugins = {
     opts = {},
     filetypes = { "typescript", "typescriptreact", "vue" },
   },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
+  },
   -- To make a plugin not be loaded
   --
   -- {

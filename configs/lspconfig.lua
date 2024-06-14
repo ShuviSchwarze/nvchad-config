@@ -10,7 +10,7 @@ local servers = {
   -- "html",
   "cssls",
   -- "tsserver",
-  "volar",
+  "tsserver",
 
   -- "clangd",
   "bufls",
@@ -24,6 +24,7 @@ local servers = {
   "prismals",
 
   "rust_analyzer",
+  "gleam",
 }
 
 for _, lsp in ipairs(servers) do
