@@ -1,3 +1,4 @@
+local colors = require("base46").get_theme_tb "base_30"
 local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
@@ -389,9 +390,38 @@ local plugins = {
   {
     "HiPhish/rainbow-delimiters.nvim",
     event = "VeryLazy",
+    config = function()
+      require("rainbow-delimiters.setup").setup {
+        query = {
+          javascript = "rainbow-parens",
+          typescriptreact = "rainbow-parens",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
+      local colours = {
+        RainbowDelimiterRed = colors.red,
+        RainbowDelimiterYellow = colors.yellow,
+        RainbowDelimiterBlue = colors.blue,
+        RainbowDelimiterOrange = colors.orange,
+        RainbowDelimiterGreen = colors.teal,
+        RainbowDelimiterViolet = colors.purple,
+        RainbowDelimiterCyan = colors.cyan,
+      }
+
+      for name, code in pairs(colours) do
+        vim.api.nvim_set_hl(0, name, { fg = code })
+      end
+    end,
   },
-  { "davidosomething/format-ts-errors.nvim",
-  },
+  { "davidosomething/format-ts-errors.nvim" },
   -- To make a plugin not be loaded
   --
   -- {
