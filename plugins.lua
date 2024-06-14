@@ -390,6 +390,8 @@ local plugins = {
     "HiPhish/rainbow-delimiters.nvim",
     event = "VeryLazy",
   },
+  { "davidosomething/format-ts-errors.nvim",
+  },
   -- To make a plugin not be loaded
   --
   -- {
